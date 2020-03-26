@@ -121,7 +121,7 @@ namespace KeyHoldTool.UserControls
         /// <summary>
         /// 入力機器
         /// </summary>
-        public InputDevice Input
+        public InputDevice InputMode
         {
             get
             {
@@ -136,7 +136,7 @@ namespace KeyHoldTool.UserControls
                         break;
 
                     case InputDevice.Mouse:
-                        radioButtonMouse.Checked = false;
+                        radioButtonMouse.Checked = true;
                         break;
                 }
             }
@@ -149,6 +149,9 @@ namespace KeyHoldTool.UserControls
         public KeySettingPanel()
         {
             InitializeComponent();
+
+            // 状態変更
+            ChangeInputItemEnable();
         }
 
         /// <summary>
@@ -156,19 +159,18 @@ namespace KeyHoldTool.UserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void radioButtonKeybord_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeInputItemEnable();
+        }
+
+        /// <summary>
+        /// 入力アイテム状態変更
+        /// </summary>
+        private void ChangeInputItemEnable()
         {
             textBoxKey.Enabled = radioButtonKeybord.Checked;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void radioButtonMouse_CheckedChanged(object sender, EventArgs e)
-        {
-            comboBoxButton.Enabled = radioButtonKeybord.Checked;
+            comboBoxButton.Enabled = radioButtonMouse.Checked;
         }
     }
 }

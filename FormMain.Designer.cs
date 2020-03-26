@@ -32,9 +32,9 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonInitialize = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.keySettingPanelStart = new KeyHoldTool.UserControls.KeySettingPanel();
             this.keySettingPanelHold = new KeyHoldTool.UserControls.KeySettingPanel();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // buttonSave
@@ -67,10 +67,17 @@
             this.buttonInitialize.UseVisualStyleBackColor = true;
             this.buttonInitialize.Click += new System.EventHandler(this.buttonInitialize_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
             // keySettingPanelStart
             // 
             this.keySettingPanelStart.Alt = false;
             this.keySettingPanelStart.Ctrl = false;
+            this.keySettingPanelStart.InputMode = KeyHoldTool.UserControls.KeySettingPanel.InputDevice.Keybord;
             this.keySettingPanelStart.Key = "";
             this.keySettingPanelStart.Location = new System.Drawing.Point(10, 157);
             this.keySettingPanelStart.MouseButton = "";
@@ -84,6 +91,7 @@
             // 
             this.keySettingPanelHold.Alt = false;
             this.keySettingPanelHold.Ctrl = false;
+            this.keySettingPanelHold.InputMode = KeyHoldTool.UserControls.KeySettingPanel.InputDevice.Keybord;
             this.keySettingPanelHold.Key = "";
             this.keySettingPanelHold.Location = new System.Drawing.Point(10, 12);
             this.keySettingPanelHold.MouseButton = "";
@@ -92,12 +100,6 @@
             this.keySettingPanelHold.Size = new System.Drawing.Size(262, 139);
             this.keySettingPanelHold.TabIndex = 0;
             this.keySettingPanelHold.Title = "HoldKey";
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             // 
             // FormMain
             // 
@@ -109,8 +111,12 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.keySettingPanelStart);
             this.Controls.Add(this.keySettingPanelHold);
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.Text = "KeyHoldTool";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ClientSizeChanged += new System.EventHandler(this.FormMain_ClientSizeChanged);
             this.ResumeLayout(false);
 

@@ -150,7 +150,7 @@ namespace MMFrame.Windows.Simulation
         /// <param name="absolute">マウス座標を絶対値で指定する場合は true</param>
         /// <param name="x">水平位置または移動量</param>
         /// <param name="y">垂直位置または移動量</param>
-        public static void AddMouseInput(ref System.Collections.Generic.List<Input> inputs, System.Collections.Generic.List<MouseStroke> flags, int data, bool absolute, int x, int y)
+        public static void AddMouseInput(ref System.Collections.Generic.List<Input> inputs, System.Collections.Generic.IEnumerable<MouseStroke> flags, int data, bool absolute, int x, int y)
         {
             if (flags == null)
             {
@@ -259,7 +259,7 @@ namespace MMFrame.Windows.Simulation
         /// <summary>
         /// 入力イベントを実行します。
         /// </summary>
-        public static void SendInput(System.Collections.Generic.List<Input> inputs)
+        public static void SendInput(System.Collections.Generic.IEnumerable<Input> inputs)
         {
             Input[] inputArray = inputs.ToArray();
             SendInput(inputArray);

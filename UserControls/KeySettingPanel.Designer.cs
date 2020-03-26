@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxSettings = new System.Windows.Forms.GroupBox();
-            this.textBoxKey = new System.Windows.Forms.TextBox();
+            this.textBoxKey = new KeyHoldTool.UserControls.KeyInputTextBox();
             this.comboBoxButton = new System.Windows.Forms.ComboBox();
             this.radioButtonMouse = new System.Windows.Forms.RadioButton();
             this.radioButtonKeybord = new System.Windows.Forms.RadioButton();
@@ -58,17 +58,18 @@
             // 
             // textBoxKey
             // 
-            this.textBoxKey.Location = new System.Drawing.Point(130, 21);
+            this.textBoxKey.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.textBoxKey.Location = new System.Drawing.Point(130, 19);
             this.textBoxKey.Name = "textBoxKey";
             this.textBoxKey.Size = new System.Drawing.Size(100, 23);
-            this.textBoxKey.TabIndex = 7;
+            this.textBoxKey.TabIndex = 8;
             // 
             // comboBoxButton
             // 
             this.comboBoxButton.FormattingEnabled = true;
             this.comboBoxButton.Items.AddRange(new object[] {
             "Left",
-            "Light",
+            "Right",
             "Middle",
             "Wheel"});
             this.comboBoxButton.Location = new System.Drawing.Point(130, 47);
@@ -86,7 +87,7 @@
             this.radioButtonMouse.TabStop = true;
             this.radioButtonMouse.Text = "Mouse";
             this.radioButtonMouse.UseVisualStyleBackColor = true;
-            this.radioButtonMouse.CheckedChanged += new System.EventHandler(this.radioButtonMouse_CheckedChanged);
+            this.radioButtonMouse.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // radioButtonKeybord
             // 
@@ -99,7 +100,7 @@
             this.radioButtonKeybord.TabStop = true;
             this.radioButtonKeybord.Text = "Keybord";
             this.radioButtonKeybord.UseVisualStyleBackColor = true;
-            this.radioButtonKeybord.CheckedChanged += new System.EventHandler(this.radioButtonKeybord_CheckedChanged);
+            this.radioButtonKeybord.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // checkBoxAlt
             // 
@@ -152,7 +153,7 @@
         private System.Windows.Forms.CheckBox checkBoxAlt;
         private System.Windows.Forms.CheckBox checkBoxCtrl;
         private System.Windows.Forms.CheckBox checkBoxShift;
-        private System.Windows.Forms.TextBox textBoxKey;
         private System.Windows.Forms.ComboBox comboBoxButton;
+        private KeyInputTextBox textBoxKey;
     }
 }
